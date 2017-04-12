@@ -1,4 +1,4 @@
-﻿#Consumer Loan Default Prediction 
+﻿# Consumer Loan Default Prediction 
 
 * Problem Statement 
   * Business Model
@@ -9,7 +9,7 @@
   * Model building after Data Cleaning
   * Decision Tree
 
-#Problem Statement
+Problem Statement
 Banks play a crucial role in market economies. They decide who can get finance and on what terms and can make or break investment decisions. For markets and society to function, individuals and companies need access to credit.
 
 However, giving loan can be a risky business. What if the person or companies, banks have granted loan to are not able to pay it back. It’s not easy to determine the future. However, we can predict the probability of default by a customer by using, Credit Scoring algorithms.
@@ -18,10 +18,10 @@ Banks use Credit scores to determine the credit worthiness of the candidate and 
 
 In this study our goal is to build a model that borrowers can use to help make the best financial decisions. The data is raw, you may have to spend considerable amount of time for validating and cleaning the data.
 
-#Business Model
+# Business Model
 Banks make profits by interest on credit or loans they have provided to their customers for their needs. Banks have to be careful about whom to grant a loan, as the margin on the interest is quite low but the loss associated with defaulting the loan can be tough to recover. Reducing the probability of a loan default is a priority for a bank. To reduce such cases, banks check credit worthiness of the borrower before giving out any loan. Banks build a model to decide weather a customer is a good candidate for loan or not using information provided by customer an historical loan data which helps banks to find the probability of any future default. Using the data given to us about the borrowers and we will try to build a model which can predict whether a borrower will be able to pay loan or default the loan.
 
-#Data Exploration
+# Data Exploration
 Once we have the dataset and metadata, understanding metadata thoroughly is a crucial step. Exploration helps us understand all the variables throughly which is necessary to understand relation between input and predictive variables. Exploration also provides a vague understanding of what’s going on with the dataset.
 
 First step is to import the data set to R. Formats like .csv,.xlsx etc are the common data formats used by data scientists or analysts. Use suitable function to import it into R. In our case data set is in csv format. So we use the function ‘read.csv()’ to import the data set.
@@ -125,11 +125,11 @@ Summary will show the minimum,maximum,mean,median,1st quartile,3rd quartile of a
 
 Missing values aren’t always represented by ‘NA’. We can also find ‘?’,‘-’,‘.’ etc as denotation for missing values. Summary and frequency table of the variable are best ways to find the presence of missing values. Frequency table allows us to find any notation used for missing value. Once we know the representation of the missing values, we can find number of missing values in each variable and move toward missing value treatment.
 
-##Univariate Analysis
+## Univariate Analysis
 In univariate analysis, we validate one variable at a time. This allow us know what each variable signifies and how it is related to predicting variable. Method to perform Univariate analysis depends on weather the variable is continuous or categorical. -1. Continuous : Central tendency(mean, median, mode etc.)and spread of the variable or dispersion(range, quartile, variance, skewness-kurtosis etc.) is the basic way to deal with continuous variables. These can be measured using various statistical metrics. Boxplot can be used for visulisation. -2. Categorical : Frequency tables are used for analysing categorical variables. Count of each variable and/or percentage count helps us understand categorical data. Bar charts can be used for visulisation.
 
 This also helps us identifying any missing values, outliers etc. Once we sanitize the variable data it can be used for final model building.
-> ##SeriousDlqin2yrs
+> ## SeriousDlqin2yrs
 
 Variable ‘SeriousDlqin2yrs’ tells whether a person experienced 90 days past due delinquency or worse. This is the target variable which we have to predict. Being a binary variable, value is either 1(yes) or 0(no).
   
@@ -151,7 +151,7 @@ Output
 
 Out of 150000 only 10026 are bad accounts, which shows we might be dealing with ‘imbalanced data’
 
-> #RevolvingUtilizationOfUnsecuredLines
+> # RevolvingUtilizationOfUnsecuredLines
 
 This variable represents total balance on credit cards and personal lines of credit, except, real estate and no-installment debt like car loans divided by the sum of credit limits. As this variable is a ratio, the value must be between 0 and 1.
     
@@ -175,7 +175,7 @@ Output
     9.999999e-01 1.006199e+00 1.092956e+00 5.070800e+04
 We can see that there are outliers present in the variable.
 
->#age
+># age
 
 It specifies age of the barrower in years. Its’ an integer. lets see the summary of age
 
@@ -207,7 +207,7 @@ Ouput
 
 There is only one borrower whose age is less than 20. That borrower is of minimum age 0. This is not possible as banks can not give credit to unborn.
 
->#NumberOfTime30.59DaysPastDueNotWorse
+># NumberOfTime30.59DaysPastDueNotWorse
 
 This variable shows number of times a borrower has been between 30-59 days past due, but no worse in the last 2 years.
     
@@ -250,7 +250,7 @@ Output
 
 This variables has values from 0 to 13 and 96,98. Last two must be the outliers.
 
->#DebtRatio
+># DebtRatio
 
 Debt ratio is obtained by dividing Monthly debt payments, alimony, living costs by monthly gross income.
 
@@ -288,7 +288,7 @@ We can see upto 76 percentile DebtRatio is less than 1.
 
 There are outlers present in the variable DebtRatio. We have to filter them before we use the data for model building.
 
->#MonthlyIncome
+># MonthlyIncome
 
 This variable represents monthly income of the borrower.
    
@@ -309,7 +309,7 @@ Its minimum value is 0, which is practically impossible. Mean is 6670 and median
 We have to treat missing values first before going further into this variable analysis.
 
 
->#NumberOfOpenCreditLinesAndLoans
+># NumberOfOpenCreditLinesAndLoans
 
 This variable indicates number of open loans (an installment loan such as car loan or mortgage) and lines of credit (such as credit cards).
     
@@ -340,7 +340,7 @@ Output
 
 Highest value is 58 which seems normal.
 
->#NumberOfTimes90DaysLate
+># NumberOfTimes90DaysLate
 
 
 This variable represents number of times borrower has been 90 days or more past due.
@@ -394,7 +394,7 @@ Output
 
 
 
->#NumberRealEstateLoansOrLines
+># NumberRealEstateLoansOrLines
 
 This variable shows number of mortgage and real estate loans taken by the barrower including home equity lines of credit.
 
@@ -447,7 +447,7 @@ There seem to be no outliers in this variable
 
 
 
->#NumberOfTime60.89DaysPastDueNotWorse
+># NumberOfTime60.89DaysPastDueNotWorse
 
 
 
@@ -503,7 +503,7 @@ Output
 This variables has values from 0 to 9 and 11, 96, 98. Last two must be outliers.
 
 
->#NumberOfDependents
+># NumberOfDependents
 
 
 It represents number of dependents in the family of borrower excluding the borrower.
@@ -528,7 +528,7 @@ Missing values need to be treated first before going further into this variable 
 
 We will build a model using uncleaned data and later clean the data.
 
->##Model Building
+>## Model Building
 Since the predictor variable (SeriousDlqin2yrs) is YES or NO type (Binary), logistic regression model seem to be a fair apporach.
 
 The dataset contains training data set but no test data. We will divide our data set into two parts, first 125000 rows for training and remaining 25000 rows for testing.
@@ -623,9 +623,9 @@ Our model accuracy with uncleaned data is 0.928. Specificity is 0.028, which bei
 In next step we will apply missing values treatment on the data, replacing the missing values with their means and will build new model.
 
 
->###Missing Values Treatment
+>### Missing Values Treatment
 
-MonthlyIncome and NumberOfDependents have missing values. After creating a new dataset we will replace missing values in above columns by their column mean values. ###MonthlyIncome In MonthlyIncome missing values are of 19.82%. We create a new column NA_MonthlyIncome which indicates whether the original value in MonthlyIncome was NA or not.
+MonthlyIncome and NumberOfDependents have missing values. After creating a new dataset we will replace missing values in above columns by their column mean values. ### MonthlyIncome In MonthlyIncome missing values are of 19.82%. We create a new column NA_MonthlyIncome which indicates whether the original value in MonthlyIncome was NA or not.
 
 
     train_data1<-train_data
@@ -634,7 +634,7 @@ MonthlyIncome and NumberOfDependents have missing values. After creating a new d
   
     train_data1$NA_MonthlyIncome<-is.na(train_data[,7])
 
-###NumberOfDependents In column NumberOfDependents missing values are of only 2.616%, we can just replace missing values by mean of remaining values without creating a new column
+### NumberOfDependents In column NumberOfDependents missing values are of only 2.616%, we can just replace missing values by mean of remaining values without creating a new column
 
 
     c1<-c(1:150000)[is.na(train_data[,12])]
@@ -699,7 +699,7 @@ We can see model accuracy has been improved to 0.931after missing values treatme
 In next step we will treat outliers.
 
 
->###Outliers Removal
+>### Outliers Removal
 
 
 
@@ -712,7 +712,7 @@ We will create new dataset train_data2 using train_data1 in which we will replac
 
 
 
-####RevolvingUtilizationOfUnsecuredLines
+#### RevolvingUtilizationOfUnsecuredLines
 
 
 RevolvingUtilizationOfUnsecuredLines is a ratio, any value greater than 1 must be outlier. Since outliers percentage is less than 10, We will replace outliers with mean of remaining data.
@@ -724,7 +724,7 @@ RevolvingUtilizationOfUnsecuredLines is a ratio, any value greater than 1 must b
 
 
 
-####age
+#### age
 
 Only outlying value in variable ‘Age’ is zero, we replace it with mean of remaining values.
 
@@ -736,7 +736,7 @@ Only outlying value in variable ‘Age’ is zero, we replace it with mean of re
     train_data2[c(1:150000)[train_data1$age==0],4]<-remain_mean
 
 
-####NumberOfTime30.59DaysPastDueNotWorse
+#### NumberOfTime30.59DaysPastDueNotWorse
 
 NumberOfTime30.59DaysPastDueNotWorse has values 96,98 as outliers which are of less than 10%. We can treat the outliers based on the related variable ‘SeriousDlqin2yrs’. ‘NumberOfTime30.59DaysPastDueNotWorse’ is directly related to ‘SeriousDlqin2yrs’. We create a frequency table between SeriousDlqin2yrs and NumberOfTime30.59DaysPastDueNotWorse.
 
@@ -792,7 +792,7 @@ We can see that for 98, 6 values have nearly same percent(45.83) and there are o
 
 
 
-###DebtRatio
+### DebtRatio
 
 
 For DebtRatio we will take anything greater than 1 as outlier and replace them with remaining values mean. As outliers percentage is 23.4%, we crete a new row Outlier_DebtRatio to indicate whether that value is outlier and replaced or not.
@@ -804,7 +804,7 @@ For DebtRatio we will take anything greater than 1 as outlier and replace them w
     train_data2[c(1:150000)[train_data1$DebtRatio>1],6]<-remain_mean
 
 
-###MonthlyIncome
+### MonthlyIncome
 
 
 
@@ -841,7 +841,7 @@ We insert this mean value in place of the outliers
     train_data2$MonthlyIncome[c(1:150000)[train_data1$MonthlyIncome<50000&train_data1$MonthlyIncome>1000]]<-median
 
 
-###NumberOfTimes90DaysLate
+### NumberOfTimes90DaysLate
 
 
 
@@ -902,7 +902,7 @@ For values 98, 3 has close percentage. We replace both 96 and 98 with 3.
 
 
 
-###NumberOfTime60.89DaysPastDueNotWorse
+### NumberOfTime60.89DaysPastDueNotWorse
 
 
 This variable again has 96, 98 as outliers and can be treated as NumberOfTime30.59DaysPastDueNotWorse.
@@ -957,7 +957,7 @@ As all the outliers and missing values are cleaned, we can save and move further
 
 
 
-##Model building after Data Cleaning
+## Model building after Data Cleaning
 After Outlier Treatment, We can build a new model again using new data set. We divide data set for training and testing.
 
 
@@ -998,7 +998,7 @@ Output
 Accuracy of the model is 0.933 which is greater than that of previous model. Specificity is 0.0984, which is still very low. We need to implement another way to improve Specificity.
 
 
-##Accuracy paradox
+## Accuracy paradox
 
 In our data there are way more number of positive cases(0) than negative cases(1).
 
@@ -1020,7 +1020,7 @@ In our case if we classify a good person as bad, bank doesn’t issue loan to hi
 One way to tackle the issue is using Averaging models imbalance and increase the specificity.
 
 
-###Averaging Models
+### Averaging Models
 
 The ratio of ones to zeros is 1:14. We divide data into two groups with ones and zeros.
 
@@ -1157,6 +1157,6 @@ We can see Specificity has increased to 0.84 and but Accuracy of our Averaging m
 
 Thus we have able to increase the Specificity which is given much more importance than compared to accuracy for these type of problems
 
->##END
+>## END
 
 
